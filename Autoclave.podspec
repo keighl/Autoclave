@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.authors = { 'Autoclave Software Foundation' => 'info@alamofire.org' }
   s.source = { :git => 'https://github.com/keighl/Autoclave.git', :tag => s.version }
   s.ios.deployment_target = '8.0'
-  s.osx.deployment_target = '10.7'
+  s.osx.deployment_target = '10.9'
   s.source_files = 'Source/*.swift'
   s.requires_arc = true
 end
