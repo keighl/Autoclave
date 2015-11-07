@@ -9,12 +9,13 @@
 import XCTest
 @testable import Autoclave
 
-class AutoclaveVisualTests: XCTestCase {
+class VisualTests: XCTestCase {
     
-    let superview = UIView()
-    let view1 = UIView()
-    let view2 = UIView()
-    var views = [String: UIView]()
+    let superview = View()
+    let view1 = View()
+    let view2 = View()
+    var views = [String: View]()
+    let optsNone = NSLayoutFormatOptions(rawValue: 0)
     let metrics = [
         "width": 200,
     ]
@@ -29,15 +30,15 @@ class AutoclaveVisualTests: XCTestCase {
         ]
     }
     
-    func testVisual_Basic() {
+    func testBasic() {
         let constraints = AC.visual(views)
             .format("|[view1][view2]|")
             .constraints()
-        let regConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|[view1][view2]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: views)
+        let regConstraints = NSLayoutConstraint.constraintsWithVisualFormat("|[view1][view2]|", options: optsNone, metrics: nil, views: views)
         XCTAssertEqual(constraints.count, regConstraints.count)
     }
     
-    func testVisual_Robusto() {
+    func testExtraProperties() {
         let constraints = AC.visual(views)
             .format("[view1(width)][view2(width)]")
             .metrics(metrics)
@@ -47,7 +48,18 @@ class AutoclaveVisualTests: XCTestCase {
         XCTAssertEqual(constraints.count, regConstraints.count)
     }
     
-    func testVisual_AddTo() {                
+    func testFormatChain() {
+        let constraints = AC.visual(views)
+            .format("[view1][view2]")
+            .format("V:|[view1][view2]|")
+            .constraints()
+        let regConstraints = NSLayoutConstraint.constraintsWithVisualFormat("[view1][view2]", options: optsNone, metrics: nil, views: views)
+        let regVConstraints = NSLayoutConstraint.constraintsWithVisualFormat("V:|[view1][view2]|", options: optsNone, metrics: nil, views: views)
+
+        XCTAssertEqual(constraints.count, regConstraints.count + regVConstraints.count)
+    }
+    
+    func testAddTo() {
         let constraints = AC.visual(views)
             .format("|[view1][view2]|")
             .addTo(superview)

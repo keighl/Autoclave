@@ -9,11 +9,11 @@
 import XCTest
 @testable import Autoclave
 
-class AutoclaveTests: XCTestCase {
+class ViewTests: XCTestCase {
 
-    let superview = UIView()
-    let view1 = UIView()
-    let view2 = UIView()
+    let superview = View()
+    let view1 = View()
+    let view2 = View()
     
     override func setUp() {
         super.setUp()
@@ -59,19 +59,19 @@ class AutoclaveTests: XCTestCase {
         }
     }
     
-    func testViews_Equal() {
+    func testEqual() {
         basicTester(.Equal)
     }
     
-    func testViews_LessThan() {
+    func testLessThan() {
         basicTester(.LessThanOrEqual)
     }
     
-    func testViews_GreaterThan() {
+    func testGreaterThan() {
         basicTester(.GreaterThanOrEqual)
     }
     
-    func testViews_AltTargetAttr() {
+    func testAltTargetAttr() {
         let constraints = AC(view1, view2)
             .make(.Width, .Height)
             .sameAs(superview, attr: .Width)
@@ -98,13 +98,13 @@ class AutoclaveTests: XCTestCase {
         }
     }
     
-    func testViews_OtherProperties() {
+    func testExtraProperties() {
         let constraints = AC(view1, view2)
             .make(.Width, .Height)
             .sameAs(superview)
             .multiplier(0.6)
             .constant(200)
-            .priority(UILayoutPriorityDefaultLow)
+            .priority(1000)
             .addTo(superview)
 
         XCTAssertEqual(constraints.count, 4)
@@ -115,7 +115,7 @@ class AutoclaveTests: XCTestCase {
             XCTAssertEqual(c.firstAttribute, attrs[i])
             XCTAssertEqual(c.secondAttribute, attrs[i])
             XCTAssertEqualWithAccuracy(c.multiplier, 0.6, accuracy: 0.001)
-            XCTAssertEqual(c.priority, UILayoutPriorityDefaultLow)
+            XCTAssertEqual(c.priority, 1000)
             XCTAssertEqual(c.constant, 200)
             
             if !c.firstItem.isEqual(views[i]) {
@@ -133,7 +133,7 @@ class AutoclaveTests: XCTestCase {
         XCTAssertEqual(superview.constraints.count, constraints.count)
     }
     
-    func testViews_NoSecondView() {
+    func testNoSecondView() {
         let constraints = AC(view1, view2).make(.Width).constant(200).constraints()
         XCTAssertEqual(constraints.count, 2)
         let views = [view1, view2]

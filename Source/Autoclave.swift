@@ -126,7 +126,7 @@ public struct AutoclaveCursor {
 
 public struct AutoclaveVisualCursor {
     let views: [String: View]
-    var metrics: [String: AnyObject]?
+    var metrics: [String: NSNumber]?
     var formats: [String] = []
     var options: NSLayoutFormatOptions = NSLayoutFormatOptions(rawValue: 0)
     
@@ -136,7 +136,7 @@ public struct AutoclaveVisualCursor {
         return cursor
     }
     
-    public func metrics(metrics: [String: AnyObject]) ->  AutoclaveVisualCursor {
+    public func metrics(metrics: [String: NSNumber]) ->  AutoclaveVisualCursor {
         var cursor = self
         cursor.metrics = metrics
         return cursor
