@@ -47,6 +47,7 @@
 		CF43B7A21BED10EA0017490A /* Autoclave.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Autoclave.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF43B7AD1BED6A780017490A /* ViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewTests.swift; sourceTree = "<group>"; };
 		CF43B7C41BEE63DC0017490A /* AutoclaveTests_OSX.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AutoclaveTests_OSX.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF43B7D31BF1637C0017490A /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		CF43B74E1BED03560017490A = {
 			isa = PBXGroup;
 			children = (
+				CF43B7D31BF1637C0017490A /* LICENSE */,
 				CF43B7591BED03560017490A /* Products */,
 				CF43B75A1BED03560017490A /* Source */,
 				CF43B7661BED03570017490A /* Tests */,
@@ -613,6 +615,7 @@
 				CF43B7CE1BEE63DC0017490A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
