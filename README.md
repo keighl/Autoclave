@@ -41,13 +41,13 @@ view.addConstraint(NSLayoutConstraint(
 
 Constrain `CenterX` of `button` as equal to `view`. Add the constraint to `view`.
 
-```
+```swift
 AC(button).make(.CenterX).sameAs(view).addTo(view)
 ```
 
 *Note:* `addTo()` returns generated constraints if you need to reference them. E.g: 
 
-```
+```swift
 let buttonConstraints = AC(button)
 	.make(.CenterX)
 	.sameAs(view).addTo(view)
@@ -57,7 +57,7 @@ let buttonConstraints = AC(button)
 
 Constrain the `Width` of each item (`button`, `image`, `label`) to be the same as `view`. Add the constraints to `view`.
 
-```
+```swift
 AC(button, image, label)
 	.make(.Width)
 	.sameAs(view)
@@ -68,14 +68,14 @@ AC(button, image, label)
 
 Constrains the button's `CenterX`, `CenterY`, `Width`, `Height` to the respective attributes of `view`. Add the constraints to `view`.
 
-```
+```swift
 AC(button).make(.CenterX, .CenterY, .Width, .Height)
 	.sameAs(view)
 	.addTo(view)		
 ```
 Bonus! Lots of attributes on lots of views. 
 
-```
+```swift
 AC(button, image, label)
 	.make(.CenterX, .CenterY, .Width, .Height)
 	.sameAs(view)
@@ -86,7 +86,7 @@ AC(button, image, label)
 
 Constrain the `Width` of each item (`button`, `image`, `label`) to be the same as `view` `Height`. Add the constraints to `view`.
 
-```
+```swift
 AC(button, image, label)
 	.make(.Width)
 	.sameAs(view, attr: .Height)
@@ -95,13 +95,13 @@ AC(button, image, label)
 
 #### lessThan(), greaterThan()
 
-```
+```swift
 AC(button).make(.Height)
 	.lessThan(view)
 	.addTo(view)		
 ```
 
-```
+```swift
 AC(button).make(.Height)
 	.greaterThan(view)
 	.addTo(view)		
@@ -109,7 +109,7 @@ AC(button).make(.Height)
 
 #### multiplier()
 
-```
+```swift
 AC(image)
 	.make(.Width, .Height)
 	.sameAs(view)
@@ -119,7 +119,7 @@ AC(image)
 
 #### constant()
 
-```
+```swift
 AC(image)
 	.make(.Width, .Height)
 	.sameAs(view)
@@ -131,7 +131,7 @@ AC(image)
 
 The priority method will set a specific priority for all generated constraints. 
 
-```
+```swift
 AC(image)
 	.make(.Width, .Height)
 	.sameAs(view)
@@ -141,7 +141,7 @@ AC(image)
 
 #### constraints()
 
-```
+```swift
 let constraints = AC(image)
 	.make(.Width, .Height)
 	.sameAs(view)
@@ -150,6 +150,65 @@ let constraints = AC(image)
 
 ## Usage (Visual Format)
 
+### Format
 
+With Autoclave, you can chain multiple calls to `format()` which will produce multiple constraint sets for the same view dictionary. It's `addTo()` will add the produced constraints to a view.
+
+```swift
+let views = [
+    "title": titleLabel,
+    "body": bodyLabel,
+]
+
+AC.visual(views)
+    .format("V:|-[title]-[body]-|")
+    .format("|[title]|")
+    .format("|[body]|")
+    .addTo(view)
+```
+
+*Note:* `addTo()` returns generated constraints if you need to reference them. E.g: 
+
+```swift
+let constraints = AC.visual(views)
+	.format("V:|-[title]-[body]-|")
+    .addTo(view)
+```
+
+#### metrics()
+
+```swift
+let metrics = [
+	"imageWidth": 100,
+	"captionWidth": 300,
+	"space": 5,
+]
+
+AC.visual(views)
+	.metrics(metrics)
+    .format("|[image(imageWidth)]-space-[caption(captionWidth)]|")
+    .addTo(view)
+```
+
+#### options()
+
+If you need to supply format options to your constraints, use `options()` to supply and options mask. 
+
+```swift
+AC.visual(views)
+    .format("|[image][caption]|")
+    .options(.AlignAllCenterX)
+    .addTo(view)
+```
+
+#### constraints()
+
+```swift
+let constraints = AC.visual(views)
+    .format("V:|-[title]-[body]-|")
+    .format("|[title]|")
+    .format("|[body]|")
+    .constraints()
+```
 
 
