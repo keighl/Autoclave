@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Autoclave'
-  s.version = '0.1.0'
+  s.version = '1.0.0'
   s.license = 'MIT'
   s.summary = 'Your easygoing Autolayout friend.'
   s.homepage = 'https://github.com/keighl/Autoclave'
