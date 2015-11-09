@@ -45,6 +45,14 @@ Constrain `CenterX` of `button` as equal to `view`. Add the constraint to `view`
 AC(button).make(.CenterX).sameAs(view).addTo(view)
 ```
 
+*Note:* `addTo()` returns generated constraints if you need to reference them. E.g: 
+
+```
+let buttonConstraints = AC(button)
+	.make(.CenterX)
+	.sameAs(view).addTo(view)
+```
+
 #### Multiple views
 
 Constrain the `Width` of each item (`button`, `image`, `label`) to be the same as `view`. Add the constraints to `view`.
@@ -64,7 +72,6 @@ Constrains the button's `CenterX`, `CenterY`, `Width`, `Height` to the respectiv
 AC(button).make(.CenterX, .CenterY, .Width, .Height)
 	.sameAs(view)
 	.addTo(view)		
-
 ```
 Bonus! Lots of attributes on lots of views. 
 
@@ -86,14 +93,60 @@ AC(button, image, label)
 	.addTo(view)		
 ```
 
-#### Less Than, Greater Than
+#### lessThan(), greaterThan()
 
-#### Multiplier
+```
+AC(button).make(.Height)
+	.lessThan(view)
+	.addTo(view)		
+```
 
-#### Constant
+```
+AC(button).make(.Height)
+	.greaterThan(view)
+	.addTo(view)		
+```
 
-#### Priority
+#### multiplier()
 
+```
+AC(image)
+	.make(.Width, .Height)
+	.sameAs(view)
+	.multiplier(0.8)
+	.addTo(view)		
+```
+
+#### constant()
+
+```
+AC(image)
+	.make(.Width, .Height)
+	.sameAs(view)
+	.constant(-30.0)
+	.addTo(view)		
+```
+
+#### priority()
+
+The priority method will set a specific priority for all generated constraints. 
+
+```
+AC(image)
+	.make(.Width, .Height)
+	.sameAs(view)
+	.priority(UILayoutPriorityRequired)
+	.addTo(view)			
+```
+
+#### constraints()
+
+```
+let constraints = AC(image)
+	.make(.Width, .Height)
+	.sameAs(view)
+	.constraints()
+```
 
 ## Usage (Visual Format)
 
