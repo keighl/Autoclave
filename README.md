@@ -197,7 +197,7 @@ let constraints = AC(image)
 
 ### Format
 
-With Autoclave, you can chain multiple calls to `format()` which will produce multiple constraint sets for the same view dictionary. It's `addTo()` will add the produced constraints to a view.
+With Autoclave, you can chain multiple calls to `format()` which will produce multiple constraint sets for the same view dictionary. `addTo()` will add the produced constraints to a view.
 
 ```swift
 let views = [
