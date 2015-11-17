@@ -1,7 +1,7 @@
 # Autoclave
 
-[![Build Status](https://travis-ci.org/keighl/Autoclave.png?branch=master)](https://travis-ci.org/keighl/Autoclave)
-[![codecov.io](https://codecov.io/github/keighl/Autoclave/coverage.svg?branch=master)](https://codecov.io/github/keighl/Autoclave?branch=master)
+[![Build Status](https://travis-ci.org/seasaltio/Autoclave.png?branch=master)](https://travis-ci.org/seasaltio/Autoclave)
+[![codecov.io](https://codecov.io/github/seasaltio/Autoclave/coverage.svg?branch=master)](https://codecov.io/github/seasaltio/Autoclave?branch=master)
 [![Cocoapods Compatible](https://img.shields.io/cocoapods/v/Autoclave.svg)](https://img.shields.io/cocoapods/v/Autoclave.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
@@ -75,7 +75,7 @@ $ brew install carthage
 To integrate Autoclave into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "keighl/Autoclave"
+github "seasaltio/Autoclave"
 ```
 
 Run `carthage` to build the framework and drag the built `Autoclave.framework` into your Xcode project.
