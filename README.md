@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/seasaltio/Autoclave.png?branch=master)](https://travis-ci.org/seasaltio/Autoclave)
 [![codecov.io](https://codecov.io/github/seasaltio/Autoclave/coverage.svg?branch=master)](https://codecov.io/github/seasaltio/Autoclave?branch=master)
-[![Cocoapods Compatible](https://img.shields.io/cocoapods/v/Autoclave.svg)](https://img.shields.io/cocoapods/v/Autoclave.svg)
+[![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Autoclave.svg)](https://img.shields.io/cocoapods/v/Autoclave.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
 Autoclave is your easygoing Autolayout friend. It condenses your constraint definitions into simple chained methods.
